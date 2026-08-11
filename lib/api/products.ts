@@ -10,15 +10,13 @@ export function getProducts(params?: {
     offset?: number;
 }) {
     const sp = new URLSearchParams();
-    if (params?.search) {
-        sp.set('search', params.search);
-    }
-    if (params?.limit !== null) {
-        sp.set('limit', String(params?.limit));
-    }
-    if (params?.offset) {
-        sp.set('offset', String(params?.offset));
-    }
+    const limit = params?.limit;
+    const offset = params?.offset;
+    const search = params?.search;
+    
+    if (search != null) sp.set('search', search);
+    if (limit != null) sp.set('limit', String(limit));
+    if (offset != null) sp.set('offset', String(offset));
     const q = sp.toString();
     return apiFetch<ProductListItem[]>(`/products${q ? `?${q}` : ''	}`);
 }
