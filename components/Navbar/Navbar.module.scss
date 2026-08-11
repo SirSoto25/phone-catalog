@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 1.25rem 0 1.5rem;
+  border-bottom: 1px solid $gray;
+  background: $white;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: $black;
+}
+
+.cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: $black;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 50%;
+  background: $black;
+  color: $white;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
