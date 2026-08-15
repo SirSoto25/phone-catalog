@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getProductById } from '@/lib/api/products';
+import SimilarProducts from '@/components/SimilarProducts/SimilarProducts';
 import ProductConfigurator from '@/components/ProductConfigurator/ProductConfigurator';
 import styles from './page.module.scss';
 
@@ -47,6 +48,7 @@ export default async function ProductPage({ params }: Props) {
           ))}
         </dl>
       </section>
+      <SimilarProducts products={product.similarProducts} />
     </main>
   );
 }
