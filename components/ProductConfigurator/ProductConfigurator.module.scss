@@ -1,0 +1,114 @@
+@use '../../styles/variables' as *;
+
+.gallery {
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: $gray;
+}
+
+.name {
+  margin-top: 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.price {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.block {
+  margin-top: 1.25rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.storageList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.storageBtn {
+  min-width: 72px;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid $black;
+  background: $white;
+  font-family: $font-stack;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.storageActive {
+  background: $black;
+  color: $white;
+}
+
+.colorList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 0;
+}
+
+.swatchActive {
+  outline: 2px solid $black;
+  outline-offset: 2px;
+}
+
+.addBtn {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  background: $black;
+  color: $white;
+  font-family: $font-stack;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.addBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
