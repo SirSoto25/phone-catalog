@@ -79,15 +79,16 @@ export default function ProductConfigurator({ product }: Props) {
           <div className={styles.storageList}>
             {product.storageOptions.map((opt) => (
               <button
-                key={opt.capacity}
-                type="button"
-                className={`${styles.storageBtn} ${
-                  storageCapacity === opt.capacity ? styles.storageActive : ''
-                }`}
-                onClick={() => setStorageCapacity(opt.capacity)}
-              >
-                {opt.capacity}
-              </button>
+              key={opt.capacity}
+              type="button"
+              className={`${styles.storageBtn} ${
+                storageCapacity === opt.capacity ? styles.storageActive : ''
+              }`}
+              aria-pressed={storageCapacity === opt.capacity}
+              onClick={() => setStorageCapacity(opt.capacity)}
+            >
+              {opt.capacity}
+            </button>
             ))}
           </div>
         </div>
@@ -98,17 +99,18 @@ export default function ProductConfigurator({ product }: Props) {
           </p>
           <div className={styles.colorList}>
             {product.colorOptions.map((opt) => (
-              <button
-                key={opt.name}
-                type="button"
-                className={`${styles.swatch} ${
-                  colorName === opt.name ? styles.swatchActive : ''
-                }`}
-                style={{ backgroundColor: opt.hexCode }}
-                aria-label={opt.name}
-                title={opt.name}
-                onClick={() => setColorName(opt.name)}
-              />
+             <button
+             key={opt.name}
+             type="button"
+             className={`${styles.swatch} ${
+               colorName === opt.name ? styles.swatchActive : ''
+             }`}
+             style={{ backgroundColor: opt.hexCode }}
+             aria-label={opt.name}
+             aria-pressed={colorName === opt.name}
+             title={opt.name}
+             onClick={() => setColorName(opt.name)}
+           />
             ))}
           </div>
         </div>
@@ -118,6 +120,9 @@ export default function ProductConfigurator({ product }: Props) {
           className={styles.addBtn}
           disabled={!canAdd}
           onClick={handleAdd}
+          aria-disabled={!canAdd}
+          title={!canAdd ? 'Selecciona color y almacenamiento' : undefined}
+          aria-label={!canAdd ? 'Selecciona color y almacenamiento' : undefined}
         >
           {justAdded ? 'AÑADIDO' : 'AÑADIR'}
         </button>
