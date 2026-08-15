@@ -1,7 +1,13 @@
-export default function Home() {
+import { getProducts } from '@/lib/api/products';
+import ProductCatalog from '@/components/ProductCatalog/ProductCatalog';
+import styles from './page.module.scss';
+
+export default async function Home() {
+  const products = await getProducts({ limit: 20 });
+
   return (
-    <main style={{ padding: '1.5rem' }}>
-      <p>home</p>
+    <main className={styles.main}>
+      <ProductCatalog initialProducts={products} />
     </main>
   );
 }
