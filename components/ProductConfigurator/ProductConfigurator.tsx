@@ -5,6 +5,7 @@ import Image from 'next/image';
 import type { ProductDetail } from '@/lib/types/product';
 import { canAddToCart } from '@/lib/cart/helpers';
 import styles from './ProductConfigurator.module.scss';
+import { useCart } from '@/context/CartContext';
 
 type Props = {
   product: ProductDetail;
@@ -12,7 +13,10 @@ type Props = {
 
 export default function ProductConfigurator({ product }: Props) {
   const [colorName, setColorName] = useState<string | null>(null);
+  const [justAdded, setJustAdded] = useState(false);
   const [storageCapacity, setStorageCapacity] = useState<string | null>(null);
+  const { addItem } = useCart();
+  
 
   const selectedColor = useMemo(
     () => product.colorOptions.find((c) => c.name === colorName) ?? null,
@@ -34,13 +38,17 @@ export default function ProductConfigurator({ product }: Props) {
 
   function handleAdd() {
     if (!canAdd || !selectedColor || !selectedStorage) return;
-    // feature 09: meter en CartContext
-    console.log('add', {
+    addItem({
       id: product.id,
+      brand: product.brand,
+      name: product.name,
+      imageUrl: selectedColor.imageUrl,
       color: selectedColor.name,
       storage: selectedStorage.capacity,
       price: selectedStorage.price,
     });
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 800);
   }
 
   return (
@@ -111,7 +119,7 @@ export default function ProductConfigurator({ product }: Props) {
           disabled={!canAdd}
           onClick={handleAdd}
         >
-          AÑADIR
+          {justAdded ? 'AÑADIDO' : 'AÑADIR'}
         </button>
       </div>
     </>
