@@ -1,5 +1,5 @@
 import { getProducts } from '@/lib/api/products';
-import ProductCard from '@/components/ProductCard/ProductCard';
+import ProductCatalog from '@/components/ProductCatalog/ProductCatalog';
 import styles from './page.module.scss';
 
 export default async function Home() {
@@ -7,13 +7,7 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
-      <ul className={styles.grid}>
-        {products.map((product, index) => (
-          <li key={`${product.id}-${index}`}>
-            <ProductCard product={product} priority={index < 4} />
-          </li>
-        ))}
-      </ul>
+      <ProductCatalog initialProducts={products} />
     </main>
   );
 }

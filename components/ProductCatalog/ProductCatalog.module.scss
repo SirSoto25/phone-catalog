@@ -1,0 +1,33 @@
+@use '../../styles/variables' as *;
+
+.count {
+  margin: 0.5rem 0 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: $gray;
+}
+
+.status {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: $gray;
+}
+
+.grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
