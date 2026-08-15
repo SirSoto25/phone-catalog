@@ -1,0 +1,103 @@
+@use '../../../styles/variables' as *;
+
+.main {
+  padding: 1.25rem 1.5rem 2.5rem;
+}
+
+.breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  color: $gray;
+}
+
+.breadcrumb a:hover {
+  color: $black;
+  text-decoration: underline;
+}
+
+.layout {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+.gallery {
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: $gray;
+}
+
+.name {
+  margin-top: 0.35rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.price {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.description {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.specs {
+  margin-top: 1.75rem;
+}
+
+.specsTitle {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.specList {
+  border-top: 1px solid #e5e5e5;
+}
+
+.specRow {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 0.85rem;
+}
+
+.specRow dt {
+  color: $gray;
+  text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  .specRow {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
