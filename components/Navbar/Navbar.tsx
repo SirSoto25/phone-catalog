@@ -13,7 +13,11 @@ export default function Navbar() {
         MBST
       </Link>
 
-      <Link href="/cart" className={styles.cart} aria-label="Cart">
+      <Link
+        href="/cart"
+        className={styles.cart}
+        aria-label={`Cart, ${cartCount ? cartCount : 'empty'}`}
+      >
         <svg
           width="22"
           height="22"
@@ -37,7 +41,9 @@ export default function Navbar() {
           <circle cx="9" cy="20" r="1.25" fill="currentColor" />
           <circle cx="18" cy="20" r="1.25" fill="currentColor" />
         </svg>
-        <span className={styles.badge}>{cartCount}</span>
+        <span className={styles.badge} aria-live="polite">
+          {cartCount}
+        </span>
       </Link>
     </header>
   );
