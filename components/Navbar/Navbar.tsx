@@ -1,8 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 import styles from './Navbar.module.scss';
 
 export default function Navbar() {
-  const cartCount = 0;
+  const { cartCount } = useCart();
 
   return (
     <header className={styles.header}>
