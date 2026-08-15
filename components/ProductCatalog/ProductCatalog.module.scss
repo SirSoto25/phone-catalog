@@ -1,10 +1,18 @@
 @use '../../styles/variables' as *;
 
+.toolbar {
+  margin-bottom: 0;
+}
+
 .count {
-  margin: 0.5rem 0 1.25rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   color: $gray;
+  line-height: 15px;
 }
 
 .status {
@@ -16,18 +24,26 @@
 .grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 0.5px solid $black;
+  border-left: 0.5px solid $black;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1200px) {
   .grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }

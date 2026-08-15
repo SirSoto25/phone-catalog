@@ -1,110 +1,136 @@
 @use '../../styles/variables' as *;
 
 .gallery {
-  background: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 280px;
+  background: $white;
 }
 
 .image {
   width: 100%;
   height: auto;
+  max-height: 630px;
   object-fit: contain;
 }
 
 .info {
   display: flex;
   flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 380px;
 }
 
-.brand {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  color: $gray;
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
 }
 
 .name {
-  margin-top: 0.35rem;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .price {
-  margin-top: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 20px;
+  font-weight: 300;
 }
 
-.description {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #333;
+.selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .block {
-  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .label {
-  font-size: 0.75rem;
+  font-size: 14px;
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.6rem;
 }
 
 .storageList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
 }
 
 .storageBtn {
-  min-width: 72px;
-  padding: 0.55rem 0.75rem;
-  border: 1px solid $black;
+  padding: 24px;
+  border: 1px solid $gray-border;
+  border-right-width: 0;
   background: $white;
   font-family: $font-stack;
-  font-size: 0.85rem;
+  font-size: 14px;
+  font-weight: 300;
   cursor: pointer;
+  color: $black;
+}
+
+.storageBtn:last-child {
+  border-right-width: 1px;
 }
 
 .storageActive {
-  background: $black;
-  color: $white;
+  border: 1px solid $black !important;
+  z-index: 1;
 }
 
 .colorList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 16px;
 }
 
 .swatch {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   padding: 0;
+  border: 1px solid $gray-border;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0;
 }
 
 .swatchActive {
-  outline: 2px solid $black;
-  outline-offset: 2px;
+  border-color: $black;
+}
+
+.swatchFill {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.colorName {
+  margin-top: -8px;
+  font-size: 12px;
+  font-weight: 300;
 }
 
 .addBtn {
-  margin-top: 1.5rem;
   width: 100%;
-  padding: 0.9rem;
+  height: 56px;
   border: none;
-  background: $black;
+  background: $highlight;
   color: $white;
   font-family: $font-stack;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
   cursor: pointer;
 }
 

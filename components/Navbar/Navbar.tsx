@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 import styles from './Navbar.module.scss';
@@ -9,38 +10,31 @@ export default function Navbar() {
 
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.logo}>
-        MBST
+      <Link href="/" className={styles.logo} aria-label="MBST home">
+        <Image
+          src="/icons/mbst-logo.svg"
+          alt="MBST"
+          width={74}
+          height={16}
+          priority
+          unoptimized
+        />
       </Link>
 
       <Link
         href="/cart"
         className={styles.cart}
-        aria-label={`Cart, ${cartCount ? cartCount : 'empty'}`}
+        aria-label={`Cart, ${cartCount} items`}
       >
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M6 6h15l-1.5 9h-12L6 6z"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M6 6L5 3H2"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-          <circle cx="9" cy="20" r="1.25" fill="currentColor" />
-          <circle cx="18" cy="20" r="1.25" fill="currentColor" />
-        </svg>
+        <Image
+          src="/icons/bag.svg"
+          alt=""
+          width={12}
+          height={16}
+          className={styles.bag}
+          unoptimized
+          aria-hidden
+        />
         <span className={styles.badge} aria-live="polite">
           {cartCount}
         </span>

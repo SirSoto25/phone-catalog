@@ -21,6 +21,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: $font-stack;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,8 +31,12 @@ a {
   text-decoration: none;
 }
 
+button {
+  font-family: inherit;
+}
+
 :focus-visible {
-  outline: 2px solid #000;
+  outline: 2px solid $black;
   outline-offset: 2px;
 }
 

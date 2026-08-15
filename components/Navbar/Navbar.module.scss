@@ -1,40 +1,53 @@
 @use '../../styles/variables' as *;
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
-  padding: 0 1.25rem 0 1.5rem;
-  border-bottom: 1px solid $gray;
+  height: $header-h;
+  padding: 24px $page-pad-x-sm;
   background: $white;
 }
 
+@media (min-width: 768px) {
+  .header {
+    padding: 24px $page-pad-x-md;
+  }
+}
+
+@media (min-width: 1100px) {
+  .header {
+    padding: 24px $page-pad-x;
+  }
+}
+
 .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: $black;
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
 }
 
 .cart {
-  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px 0;
   color: $black;
 }
 
-.badge {
-  position: absolute;
-  top: -6px;
-  right: -10px;
-  min-width: 16px;
+.bag {
+  display: block;
+  width: 12.235px;
   height: 16px;
-  padding: 0 4px;
-  border-radius: 50%;
-  background: $black;
-  color: $white;
-  font-size: 10px;
+}
+
+.badge {
+  font-size: 16px;
+  font-weight: 300;
   line-height: 16px;
-  text-align: center;
+  text-transform: uppercase;
 }

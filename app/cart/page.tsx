@@ -19,23 +19,20 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <main className={styles.main}>
-        <h1 className={styles.title}>Cart</h1>
+        <h1 className={styles.title}>Cart (0)</h1>
         <p className={styles.muted}>Tu carrito está vacío</p>
-        <Link href="/" className={styles.continue}>
-          Continuar comprando
-        </Link>
+        <div className={styles.footer}>
+          <Link href="/" className={styles.continue}>
+            Continue shopping
+          </Link>
+        </div>
       </main>
     );
   }
 
   return (
     <main className={styles.main}>
-      <div className={styles.top}>
-        <h1 className={styles.title}>Cart ({items.length})</h1>
-        <Link href="/" className={styles.continue}>
-          Continuar comprando
-        </Link>
-      </div>
+      <h1 className={styles.title}>Cart ({items.length})</h1>
 
       <ul className={styles.list}>
         {items.map((item) => (
@@ -45,38 +42,46 @@ export default function CartPage() {
                 <Image
                   src={item.imageUrl}
                   alt={`${item.brand} ${item.name}`}
-                  width={96}
-                  height={96}
+                  width={262}
+                  height={324}
                   className={styles.image}
                 />
               ) : null}
             </div>
 
             <div className={styles.info}>
-              <p className={styles.name}>
-                {item.brand} {item.name}
-              </p>
-              <p className={styles.meta}>
-                {item.storage} | {item.color}
-              </p>
-              <p className={styles.price}>{item.price} EUR</p>
+              <div>
+                <p className={styles.name}>{item.name}</p>
+                <p className={styles.meta}>
+                  {item.storage} | {item.color}
+                </p>
+                <p className={styles.price}>{item.price} EUR</p>
+              </div>
+              <button
+                type="button"
+                className={styles.remove}
+                onClick={() => removeItem(item.cartItemId)}
+              >
+                Eliminar
+              </button>
             </div>
-
-            <button
-              type="button"
-              className={styles.remove}
-              onClick={() => removeItem(item.cartItemId)}
-              aria-label="Eliminar producto"
-            >
-              ×
-            </button>
           </li>
         ))}
       </ul>
 
       <div className={styles.footer}>
-        <p className={styles.totalLabel}>Total</p>
-        <p className={styles.totalValue}>{total} EUR</p>
+        <Link href="/" className={styles.continue}>
+          Continue shopping
+        </Link>
+        <div className={styles.checkout}>
+          <p className={styles.total}>
+            <span>Total</span>
+            <span>{total} EUR</span>
+          </p>
+          <button type="button" className={styles.pay} disabled>
+            Pay
+          </button>
+        </div>
       </div>
     </main>
   );

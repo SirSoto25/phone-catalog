@@ -21,16 +21,27 @@ export default async function ProductPage({ params }: Props) {
 
   if (!product.colorOptions?.length) notFound();
 
-  const specEntries = Object.entries(product.specs);
+  const specEntries: [string, string][] = [
+    ['brand', product.brand],
+    ['name', product.name],
+    ['description', product.description],
+    ...Object.entries(product.specs),
+  ];
 
   return (
     <main className={styles.main}>
-      <nav className={styles.breadcrumb}>
-        <Link href="/">Home</Link>
-        <span> / </span>
-        <span>
-          {product.brand} {product.name}
-        </span>
+      <nav className={styles.back}>
+        <Link href="/" className={styles.backLink}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/icons/chevron-left.svg"
+            alt=""
+            width={20}
+            height={20}
+            aria-hidden="true"
+          />
+          BACK
+        </Link>
       </nav>
 
       <div className={styles.layout}>
@@ -38,7 +49,7 @@ export default async function ProductPage({ params }: Props) {
       </div>
 
       <section className={styles.specs}>
-        <h2 className={styles.specsTitle}>Specifications</h2>
+        <h2 className={styles.specsTitle}>SPECIFICATIONS</h2>
         <dl className={styles.specList}>
           {specEntries.map(([key, value]) => (
             <div key={key} className={styles.specRow}>
@@ -48,6 +59,7 @@ export default async function ProductPage({ params }: Props) {
           ))}
         </dl>
       </section>
+
       <SimilarProducts products={product.similarProducts} />
     </main>
   );

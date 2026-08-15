@@ -54,11 +54,10 @@ export default function ProductCatalog({ initialProducts }: Props) {
 
   return (
     <div>
-      <SearchBar value={query} onChange={setQuery} />
-
-      <p className={styles.count}>
-        {products.length} RESULTS
-      </p>
+      <div className={styles.toolbar}>
+        <SearchBar value={query} onChange={setQuery} />
+        <p className={styles.count}>{products.length} RESULTS</p>
+      </div>
 
       {loading && <p className={styles.status}>Buscando...</p>}
       {error && <p className={styles.status}>{error}</p>}

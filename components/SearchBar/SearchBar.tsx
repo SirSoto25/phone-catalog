@@ -18,6 +18,7 @@ export default function SearchBar({ value, onChange }: Props) {
                 type="search"
                 className={styles.input}
                 placeholder="Search for a smartphone..."
+        autoComplete="off"
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
              />

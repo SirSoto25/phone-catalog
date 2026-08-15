@@ -1,22 +1,25 @@
 @use '../../styles/variables' as *;
 
 .wrap {
-  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .input {
   width: 100%;
-  padding: 0.75rem 0;
+  padding: 0 0 8px;
   border: none;
-  border-bottom: 1px solid $gray;
+  border-bottom: 0.5px solid $black;
   font-family: $font-stack;
-  font-size: 1rem;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: normal;
   background: transparent;
   outline: none;
+  color: $black;
 }
 
-.input:focus {
-  border-bottom-color: $black;
+.input::placeholder {
+  color: $placeholder;
 }
 
 .srOnly {

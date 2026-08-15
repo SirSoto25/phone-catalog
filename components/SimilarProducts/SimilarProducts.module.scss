@@ -1,24 +1,43 @@
 @use '../../styles/variables' as *;
 
 .section {
-  margin-top: 2.5rem;
+  margin-top: 64px;
+  max-width: $max-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .title {
-  font-size: 0.85rem;
+  font-size: 20px;
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 1rem;
+  margin-bottom: 40px;
 }
 
 .row {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 0;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
+  padding-bottom: 16px;
 }
 
 .item {
-  flex: 0 0 180px;
+  flex: 0 0 min(280px, 80vw);
+  min-height: 280px;
+}
+
+.item :global(a) {
+  border-top: 0.5px solid $black;
+}
+
+.item:first-child :global(a) {
+  border-left: 0.5px solid $black;
+}
+
+@media (min-width: 900px) {
+  .item {
+    flex: 0 0 $card-size;
+    min-height: $card-size;
+  }
 }

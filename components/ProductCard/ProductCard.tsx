@@ -22,8 +22,10 @@ export default function ProductCard({ product, priority }: Props) {
         />
       </div>
       <div className={styles.info}>
-        <p className={styles.brand}>{product.brand}</p>
-        <p className={styles.name}>{product.name}</p>
+        <div className={styles.brandName}>
+          <p className={styles.brand}>{product.brand}</p>
+          <p className={styles.name}>{product.name}</p>
+        </div>
         <p className={styles.price}>{product.basePrice} EUR</p>
       </div>
     </Link>
